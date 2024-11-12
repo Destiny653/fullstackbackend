@@ -21,7 +21,7 @@ const createCourse = async (data) => {
 }
 const readCourse = async () => {
     try {
-        const courses = await Course.find();
+        const courses = await Course.find().populate({path:'level', populate: {path: 'department'}});
         if (courses) {
             return {
                 error: false,

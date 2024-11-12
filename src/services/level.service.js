@@ -1,6 +1,7 @@
 const Level = require('../models/Level')
 const Instructor = require('../models/Instructor')
 const Department = require('../models/Department')
+const { getLevel } = require('../controllers/level.controller')
 
 
 const createLevel = async (info) => {
@@ -27,4 +28,32 @@ const createLevel = async (info) => {
     }
 }
 
-module.exports = { createLevel }
+const readLevel = async () => {
+    try {
+        const courses = await Level.find();
+        if (courses) {
+            return {
+                error: false,
+                status: 200,
+                message: "Courses retrieved successfully",
+                courses
+            }
+        } else {
+            return {
+                error: true,
+                status: 500,
+                message: "Failed to retrieve courses"
+            }
+        }
+
+    } catch (error) {
+        return {
+            error: true,
+            status: 500,
+            message: "An error occurred while retrieving courses",
+            errorDetails: error.message
+        }
+    }
+}
+
+module.exports = { createLevel, readLevel }

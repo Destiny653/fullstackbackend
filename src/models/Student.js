@@ -7,8 +7,8 @@ const studentSchema = new Schema({
         required: true
     }, 
     level: {
-        type: Schema.Types.ObjectId,
-        ref: 'Level',
+        type: String,
+        enum: ['Beginner', 'Intermediate', 'Advanced', 'Expert'],
         required: true
     }, 
     enrollement_date: {
