@@ -7,10 +7,7 @@ const cors = require('cors');
 connect(process.env.DATABASE_URL)
 .then(connection=>{
     const app = express();
-    app.use(cors({
-        origin: ['http://localhost:3001', 'https://level4fullstack.vercel.app'],
-        credentials: true
-    })) 
+    app.use(cors()) 
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({extended:true}));
