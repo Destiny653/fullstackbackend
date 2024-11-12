@@ -8,7 +8,7 @@ connect(process.env.DATABASE_URL)
 .then(connection=>{
     const app = express();
     app.use(cors({
-        origin: ['http://localhost:3001', 'https://dashboard-m2bd.onrender.com'],
+        origin: ['http://localhost:3001', 'https://fullstackbackend-eosin.vercel.app'],
         credentials: true
     })) 
     app.use(cors());
