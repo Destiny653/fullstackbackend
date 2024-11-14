@@ -1,7 +1,6 @@
 const Level = require('../models/Level')
 const Instructor = require('../models/Instructor')
-const Department = require('../models/Department')
-const { getLevel } = require('../controllers/level.controller')
+const Department = require('../models/Department') 
 
 
 const createLevel = async (info) => {
